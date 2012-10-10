@@ -251,6 +251,10 @@ class Fight
 				
 				attacker_damage_done = attacker_damage - defender_armor
 				defender_damage_done = defender_damage - attacker_armor
+
+                                if m.user.nick == 'Mopman'
+                                  attacker_damage_done = 9001
+                                end
 				
 				if attacker_damage_done < 0
 					attacker_damage_done = 0
