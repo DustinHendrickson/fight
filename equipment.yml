@@ -12,7 +12,7 @@ weapons:
     - name: 'Rusted Water Wand'
       damage: 2
       element: 'Water'
-    - name: 'Gartner Snake''s Fang Dagger'
+    - name: 'Garter Snake Fang'
       damage: 2
       element: 'Life'
   2:
@@ -25,10 +25,10 @@ weapons:
     - name: 'Worn Fire Staff'
       damage: 3
       element: 'Fire'
-    - name: 'Dull Water Wand'
+    - name: 'Wimpy Water Wand'
       damage: 3
       element: 'Water'
-    - name: 'Bull Snake''s Fang Dagger'
+    - name: 'Bullsnake Fang'
       damage: 3
       element: 'Life'
   3:
@@ -44,7 +44,7 @@ weapons:
     - name: 'Lesser Water Wand'
       damage: 4
       element: 'Water'
-    - name: 'Rattlesnake''s Fang Dagger'
+    - name: 'Rattlesnake Fang'
       damage: 4
       element: 'Life'
   4:
@@ -60,7 +60,7 @@ weapons:
     - name: 'Water Wand'
       damage: 5
       element: 'Water'
-    - name: 'Cobra''s Fang Dagger'
+    - name: 'Asp Fang'
       damage: 5
       element: 'Life'
   5:
@@ -76,7 +76,7 @@ weapons:
     - name: 'Major Water Wand'
       damage: 6
       element: 'Water'
-    - name: 'Anaconda''s Fang Dagger'
+    - name: 'King Cobra Fang'
       damage: 6
       element: 'Life'
   6:
@@ -102,71 +102,71 @@ weapons:
     - name: 'Steel Long Sword'
       damage: 10
       element: 'None'
-    - name: 'Greatest Fire Staff of All Time'
+    - name: 'Glorious Fire Staff'
       damage: 8
       element: 'Fire'
     - name: 'Outrageously Good Water Wand'
       damage: 8
       element: 'Water'
-    - name: 'Bum''s Dagger'
+    - name: 'Hobo''s Boxknife'
       damage: 8
       element: 'Life'
   8:
-    - name: 'Bronze Mace'
+    - name: 'Chicken Bone of Menstruation'
       damage: 10
       element: 'None'
-    - name: 'Bronze Great Sword'
+    - name: 'Sword of the Sharpening'
       damage: 11
       element: 'None'
     - name: 'Greatest Fire Staff of All Time'
       damage: 9
       element: 'Fire'
-    - name: 'Outrageously Good Water Wand'
+    - name: 'Outrageously Really, Really Good Water Wand'
       damage: 9
       element: 'Water'
-    - name: 'Bum''s Dagger'
+    - name: 'Renegade''s Knife'
       damage: 9
       element: 'Life'
   8:
-    - name: 'Iron Mace'
+    - name: 'Rusty Tea Kettle'
       damage: 11
       element: 'None'
-    - name: 'Iron Great Sword'
+    - name: 'Greater Sword of the Sharpening'
       damage: 12
       element: 'None'
-    - name: 'Greatest Fire Staff of All Time v2.0'
+    - name: 'Greatest Fire Staff of the 70''s'
       damage: 10
       element: 'Fire'
-    - name: 'Outrageously Gooder Water Wand'
+    - name: 'Even More Outrageously Really, Really Good Water Wand'
       damage: 10
       element: 'Water'
-    - name: 'Bearded Bum''s Dagger of Uncleanliness'
+    - name: 'Bearded Hobo''s Dagger of Filthmaking'
       damage: 10
       element: 'Life'
   9:
-    - name: 'Steel Mace'
+    - name: 'Russell''s Teapot'
       damage: 12
       element: 'None'
-    - name: 'Steel Great Sword'
+    - name: 'Greatest Sword of the Sharpening'
       damage: 13
       element: 'None'
-    - name: 'Sword of the Birthday Candle'
+    - name: 'Birthday Candle'
       damage: 11
       element: 'Fire'
     - name: 'Bubble Blower of Pinkness'
       damage: 11
       element: 'Water'
-    - name: 'Whizzed on Piece of Jagged Glass'
+    - name: 'Jizzed on Edge of Glass'
       damage: 11
       element: 'Life'
   10:
-    - name: 'Composite Mace'
+    - name: 'BPA-Free Plastic Bottle'
       damage: 13
       element: 'None'
-    - name: 'Composite Great Sword'
+    - name: 'Whip of the Unpaid Dominatrix'
       damage: 14
       element: 'None'
-    - name: 'Sword of the Dinner Candle'
+    - name: 'Kobold''s Candle'
       damage: 12
       element: 'Fire'
     - name: 'Bubble Blower of Purpleness'
@@ -176,51 +176,51 @@ weapons:
       damage: 12
       element: 'Life'
   11:
-    - name: 'Bronze Morning Star'
+    - name: '1oz of Gluten'
       damage: 14
       element: 'None'
-    - name: 'Bronze Greater Sword'
+    - name: 'A Sword Sharp as You Can Get Without Without Breaking It'
       damage: 15
       element: 'None'
-    - name: 'Sword of the Candle Lighter Flame'
+    - name: 'Zippo Lighter'
       damage: 13
       element: 'Fire'
-    - name: 'Bubble Blower of Yellowness'
+    - name: 'Bubble''s Blower'
       damage: 13
       element: 'Water'
     - name: 'Old NASTY Paper Bag of Doom'
       damage: 13
       element: 'Life'
   12:
-    - name: 'Iron Morning Star'
+    - name: 'Captain Obvious'' Lesser Staff of Hitting'
       damage: 15
       element: 'None'
-    - name: 'Iron Greater Sword'
+    - name: 'Naota''s Gundam Hammer'
       damage: 16
       element: 'None'
-    - name: 'Sword of the Open Range Burner Flame'
+    - name: 'Unwatched Range Burner'
       damage: 14
       element: 'Fire'
-    - name: 'Scimitar of the Puddles'
+    - name: 'Puddle Shaper'
       damage: 14
       element: 'Water'
-    - name: 'Vagrant''s Dirty Dagger'
+    - name: 'Freeloader''s Knapsack'
       damage: 14
       element: 'Life'
   13:
-    - name: 'Steel Morning Star'
+    - name: 'Captain Obvious'' Better Staff of Hitting'
       damage: 16
       element: 'None'
-    - name: 'Steel Greater Sword'
+    - name: 'Excessively Large Non-Toxic Crayon'
       damage: 17
       element: 'None'
-    - name: 'Sword of Hotness'
+    - name: 'Flaming Sword of Fire'
       damage: 15
       element: 'Fire'
-    - name: 'Scimitar of the Gentle Brooks'
+    - name: 'River Cryer'
       damage: 15
       element: 'Water'
-    - name: 'Lowlife''s Dagger of Not Washedness'
+    - name: 'Underpaid Engineer''s Mechanical Pencil'
       damage: 15
       element: 'Life'
   14:
@@ -230,7 +230,7 @@ weapons:
     - name: 'Composite Greater Sword'
       damage: 18
       element: 'None'
-    - name: 'Sword of the Heated Seat Cushion'
+    - name: 'The Heated Seat Cushion'
       damage: 16
       element: 'Fire'
     - name: 'Scimitar of the Yellow Streams'
@@ -249,7 +249,7 @@ weapons:
     - name: 'Sword with a built-in hand warmer'
       damage: 17
       element: 'Fire'
-    - name: 'Scimitar of the Excess Water from Some Dude''s Carwash'
+    - name: 'Scimitar of the Golden Shower'
       damage: 17
       element: 'Water'
     - name: 'Pickpocket''s Pocket Knife (WITH POISON!)'
@@ -265,7 +265,7 @@ weapons:
     - name: 'Sword of Heat'
       damage: 18
       element: 'Fire'
-    - name: 'Scimitar of the Happy Streams'
+    - name: 'One Pint of Bailey''s In A Shoe'
       damage: 18
       element: 'Water'
     - name: 'Thief''s Dull Blade (OH NO IT''S POISONED!)'
@@ -304,7 +304,7 @@ weapons:
       damage: 20
       element: 'Life'
   19:
-    - name: 'Solid Steel Kunai Knife'
+    - name: 'Scimitar of Racial Stereotyping'
       damage: 22
       element: 'None'
     - name: 'Zanpakuto'
@@ -320,19 +320,19 @@ weapons:
       damage: 21
       element: 'Life'
   20:
-    - name: 'Kunai Knife with Cheese'
+    - name: 'Suburban Driven By A 100lb White Girl'
       damage: 23
       element: 'None'
-    - name: 'Sweet Zanpakuto'
+    - name: 'The Hand of Zod'
       damage: 24
       element: 'None'
-    - name: 'Sword of the Fiery Hells'
+    - name: 'Greatest Fire Staff of All Time'
       damage: 22
       element: 'Fire'
-    - name: 'Scimitar of the Racial Stereotyping Streams'
+    - name: 'Zim''s Oribtal Water Balloon'
       damage: 22
       element: 'Water'
-    - name: 'Thief''s Poisoned Knife'
+    - name: 'Purple Shirted Eye Stabber''s Knife'
       damage: 22
       element: 'Life'
 
