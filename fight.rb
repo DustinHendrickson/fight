@@ -429,17 +429,17 @@ def attack( options={} )
 			# Check for crits for lower levels.
 			if attacker_is_higher_level == true
 				random = rand(5)
-				if random <= 1
+				if random <= 2
 					defender_damage = defender_damage + level_difference
-					defender_crit = 'CRIT! + ' + level_difference
+					defender_crit = ' CRIT! + ' + level_difference + ' '
 				end
 			end
 
 			if defender_is_higher_level == true
 				random = rand(5)
-				if random <= 1
+				if random <= 2
 					attacker_damage = attacker_damage + level_difference
-					attacker_crit = 'CRIT! + ' + level_difference
+					attacker_crit = ' CRIT! + ' + level_difference + ' '
 				end
 			end
 
@@ -453,7 +453,7 @@ def attack( options={} )
 			defender_damage_done = fixNegativeNumbers(defender_damage_done)
 
 			channel.msg '----------------------------------------------------'
-			channel.msg "-> #{BLUE}#{usernameA}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] attacks #{RED}#{usernameB}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] with #{PURPLE}#{attacker_weapon['name']}#{CF} #{getElementTag(attacker_weapon['element'])} #{attacker_crit} [DMG:#{BLUE}#{attacker_base_damage}#{CF}#{attacker_weapon_element_bonus}#{CF}-#{RED}#{defender_armor}#{CF}:ARM]#{getElementTag(defender_armorworn['element'])} = #{BLUE}#{attacker_damage_done}#{CF} Damage Inflicted"
+			channel.msg "-> #{BLUE}#{usernameA}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] attacks #{RED}#{usernameB}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] with #{PURPLE}#{attacker_weapon['name']}#{CF} #{getElementTag(attacker_weapon['element'])}#{attacker_crit}[DMG:#{BLUE}#{attacker_base_damage}#{CF}#{attacker_weapon_element_bonus}#{CF}-#{RED}#{defender_armor}#{CF}:ARM]#{getElementTag(defender_armorworn['element'])} = #{BLUE}#{attacker_damage_done}#{CF} Damage Inflicted"
 			channel.msg "-> #{RED}#{usernameB}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] counters #{BLUE}#{usernameA}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] with #{PURPLE}#{defender_weapon['name']}#{CF} #{getElementTag(defender_weapon['element'])} #{defender_crit} [DMG:#{RED}#{defender_base_damage}#{CF}#{defender_weapon_element_bonus}#{CF}-#{BLUE}#{attacker_armor}#{CF}:ARM]#{getElementTag(attacker_armorworn['element'])} = #{RED}#{defender_damage_done}#{CF} Damage Inflicted"
 			channel.msg '----------------------------------------------------'
 
