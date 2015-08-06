@@ -48,10 +48,10 @@ random = 0
 timer 120, method: :attack
 
 # Regex to grab the command trigger string.
-match /^@fight (\S+) ?(.+)?/, method: :fight, :use_prefix => false
+match /^@fight (\S+) ?(.+)? (.+)/, method: :fight, :use_prefix => false
 
 # Run the functions based on passed in command.
-def fight(m, command, param)
+def fight(m, command, param, param2)
 	case command
 		when 'info'
 			info m, param
@@ -61,9 +61,32 @@ def fight(m, command, param)
 			help m
 		when 'quest'
 			startquest m
+		when 'duel'
+			duel m, param, param2
 	end
 end
 
+def duel(m, param, param2)
+	attackerUsername = m.user.nick
+	defenderUsername = param
+	expBet = param2.to_i
+
+	if attackerUsername != defenderUsername
+		if dbGet(attackerUsername, 'exp').to_i >= expBet.to_i && dbGet(defenderUsername, 'level').to_i > 0
+			if expBet.to_i >= 10
+				@bot.msg(attackerUsername, "#{BOLD}-> #{GREEN} You started a duel and bet #{expBet.to_i} exp.#{CF}")
+				attack(:a => m, :b => defenderUsername, :duel => 'true', :expBet => expBet)
+			else 
+				@bot.msg(attackerUsername, "#{BOLD}-> #{RED} You must bet at least 10 exp.#{CF}")
+			end
+		else
+			@bot.msg(attackerUsername, "#{BOLD}-> #{RED} You do not have enough experience to bet that much. Or the person you're trying to duel does not have an account.#{CF}")
+		end
+	else 
+		@bot.msg(attackerUsername, "#{BOLD}-> #{RED} You can't fight yourself....#{CF}")
+	end
+
+end
 
 def startquest(m)
 	if dbGet(m.user.nick, 'exp').to_i >= 15
@@ -339,6 +362,11 @@ def attack( options={} )
 
 		# Loop till we find a valid user to fight against userA.
 		usernameB = ''
+		#If there's a manual fight, let's check and set the username
+		if options[:duel] == 'true'
+			usernameA = options[:a].user.nick
+			usernameB = options[:b]
+		end
 		i = 0
 		while usernameB == 'Fight|Bot' || usernameB == '' || usernameA == usernameB || dbGet(usernameB, 'level').to_i <= 0
 			usernameB = chan.users.keys.sample.nick
@@ -357,6 +385,7 @@ def attack( options={} )
 				break
 			end
 		end
+
 	end
 
 	# We don't want to do anything if any of the users didnt get set.
@@ -454,7 +483,7 @@ def attack( options={} )
 
 			channel.msg '----------------------------------------------------'
 			channel.msg "-> #{BLUE}#{usernameA}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] attacks #{RED}#{usernameB}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] with #{PURPLE}#{attacker_weapon['name']}#{CF} #{getElementTag(attacker_weapon['element'])}#{attacker_crit}[DMG:#{BLUE}#{attacker_base_damage}#{CF}#{attacker_weapon_element_bonus}#{CF}-#{RED}#{defender_armor}#{CF}:ARM]#{getElementTag(defender_armorworn['element'])} = #{BLUE}#{attacker_damage_done}#{CF} Damage Inflicted"
-			channel.msg "-> #{RED}#{usernameB}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] counters #{BLUE}#{usernameA}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] with #{PURPLE}#{defender_weapon['name']}#{CF} #{getElementTag(defender_weapon['element'])} #{defender_crit} [DMG:#{RED}#{defender_base_damage}#{CF}#{defender_weapon_element_bonus}#{CF}-#{BLUE}#{attacker_armor}#{CF}:ARM]#{getElementTag(attacker_armorworn['element'])} = #{RED}#{defender_damage_done}#{CF} Damage Inflicted"
+			channel.msg "-> #{RED}#{usernameB}#{CF}[#{ORANGE}#{dbGet(usernameB, 'level')}#{CF}] counters #{BLUE}#{usernameA}#{CF}#{CF}[#{ORANGE}#{dbGet(usernameA, 'level')}#{CF}] with #{PURPLE}#{defender_weapon['name']}#{CF} #{getElementTag(defender_weapon['element'])}#{defender_crit}[DMG:#{RED}#{defender_base_damage}#{CF}#{defender_weapon_element_bonus}#{CF}-#{BLUE}#{attacker_armor}#{CF}:ARM]#{getElementTag(attacker_armorworn['element'])} = #{RED}#{defender_damage_done}#{CF} Damage Inflicted"
 			channel.msg '----------------------------------------------------'
 
 			# Here we start to calculate the battle results
@@ -475,6 +504,10 @@ def attack( options={} )
 				dbSet(usernameB, 'killing_spree', 0)
 				dbSet(usernameB, 'losing_spree', dbGet(usernameB, 'losing_spree').to_i + 1)
 				dbSet(usernameA, 'losing_spree', 0)
+				if options[:duel] == 'true'
+					dbSet(usernameA, 'exp', dbGet(usernameA, 'exp').to_i + options[:expBet])
+					channel.msg "#{BOLD}-> #{BLUE}#{usernameA}#{CF} has dueled #{RED}#{usernameB}#{CF} and won an extra #{options[:expBet]} EXP!"
+				end
 				calculate_level(usernameA)
 				if dbGet(usernameA, 'killing_spree').to_i == 5
 					channel.msg "#{BOLD}-> #{BLUE}#{usernameA}#{CF} redeems their killing spree bonus for a free quest!"
@@ -499,6 +532,11 @@ def attack( options={} )
 				dbSet(usernameA, 'killing_spree', 0)
 				dbSet(usernameA, 'losing_spree', dbGet(usernameA, 'losing_spree').to_i + 1)
 				dbSet(usernameB, 'losing_spree', 0)
+				if options[:duel] == 'true'
+					dbSet(usernameA, 'exp', dbGet(usernameA, 'exp').to_i - options[:expBet])
+					dbSet(usernameB, 'exp', dbGet(usernameB, 'exp').to_i + options[:expBet])
+					channel.msg "#{BOLD}-> #{BLUE}#{usernameA}#{CF} has dueled #{RED}#{usernameB}#{CF} and LOST #{options[:expBet]} EXP!"
+				end
 				calculate_level(usernameB)
 				if dbGet(usernameB, 'killing_spree').to_i == 5
 					channel.msg "#{BOLD}-> #{BLUE}#{usernameB}#{CF} redeems their killing spree bonus for a free quest!"
